@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #0f0f0f;
+  color: #ffffff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+button {
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+}
+
+.section-title {
+  @apply text-4xl md:text-5xl font-bold text-center mb-12;
+}
+
+.section-container {
+  @apply max-w-6xl mx-auto px-6 py-20;
+}
+
+.card {
+  @apply border border-gray-700 rounded-lg p-6 hover:border-purple-500 transition-all duration-300;
+}
+
+.cta-button {
+  @apply px-8 py-3 bg-purple-600 hover:bg-purple-700 text-white rounded-lg font-semibold transition-all;
+}
+
+.accent-text {
+  @apply text-purple-400;
+}
