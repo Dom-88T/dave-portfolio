@@ -9,7 +9,7 @@ const Footer = () => {
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           {/* Brand */}
           <div>
-            <h3 className="text-2xl font-bold text-purple-400 mb-2">Dave._</h3>
+            <h3 className="text-2xl font-bold text-purple-400 mb-2">Dav3</h3>
             <p className="text-gray-400 text-sm">
               Frontend developer passionate about building responsive, user-centered web applications with React and modern JavaScript.
             </p>
@@ -47,7 +47,7 @@ const Footer = () => {
         {/* Divider */}
         <div className="border-t border-gray-700 pt-8">
           <p className="text-center text-gray-500 text-sm">
-            © {currentYear} Domingo Tomiwa David Surulere. All rights reserved.
+            © {currentYear} Domingo Tomiwa David. All rights reserved.
           </p>
         </div>
       </div>

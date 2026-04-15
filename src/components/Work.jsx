@@ -12,6 +12,14 @@ const Work = () => {
     },
     {
       id: 2,
+      title: 'CleanLoop - Waste Management Solution',
+      description: 'An innovative waste management platform designed to promote sustainable living. Features user-friendly interface for tracking and managing waste disposal, environmental impact awareness, and community engagement.',
+      tech: ['React', 'Python', 'JavaScript', 'Tailwind CSS', 'Sustainability'],
+      link: '#',
+      featured: false
+    },
+    {
+      id: 3,
       title: 'E-commerce Shopping Platform',
       description: 'A full-featured e-commerce platform with product navigation, shopping cart functionality. Demonstrates strong UI/UX design principles and seamless user experience.',
       tech: ['React', 'Redux Toolkit', 'Figma', 'JavaScript'],
@@ -19,7 +27,7 @@ const Work = () => {
       featured: false
     },
     {
-      id: 3,
+      id: 4,
       title: 'URL Shortener',
       description: 'A utility application for shortening long URLs. Showcases API integration, state management, and clean code practices.',
       tech: ['JavaScript', 'Html & Css', 'API Integration'],
