@@ -12,28 +12,29 @@ const Work = () => {
     },
     {
       id: 2,
-      title: 'CleanLoop - Waste Management Solution',
+      title: 'Finderz - Service Finder Mobile App',
+      description: 'A React Native Web application for finding and hiring local service providers. Features authentication, real-time search, chat functionality, and seamless mobile-to-web experience with Expo.',
+      tech: ['React Native', 'Expo', 'JavaScript', 'Vercel', 'Mobile Web'],
+      link: 'https://finderz.vercel.app/',
+      featured: true
+    },
+    {
+      id: 3,
+      title: 'Fashion Store - E-commerce Platform',
+      description: 'A full-featured e-commerce platform with product catalog, filtering, shopping cart functionality, and checkout flow. Demonstrates advanced React patterns, Redux state management, and responsive design principles.',
+      tech: ['React', 'Redux Toolkit', 'Vite', 'Tailwind CSS', 'JavaScript'],
+      link: 'https://clothing-store-three-zeta.vercel.app/',
+      featured: true
+    },
+    
+    {
+      id: 4,
+      title: 'CleanLoop - Waste Management App',
       description: 'An innovative waste management platform designed to promote sustainable living. Features user-friendly interface for tracking and managing waste disposal, environmental impact awareness, and community engagement.',
       tech: ['React', 'Python', 'JavaScript', 'Tailwind CSS', 'Sustainability'],
       link: '#',
       featured: false
-    },
-    {
-      id: 3,
-      title: 'E-commerce Shopping Platform',
-      description: 'A full-featured e-commerce platform with product navigation, shopping cart functionality. Demonstrates strong UI/UX design principles and seamless user experience.',
-      tech: ['React', 'Redux Toolkit', 'Figma', 'JavaScript'],
-      link: '#',
-      featured: false
-    },
-    {
-      id: 4,
-      title: 'URL Shortener',
-      description: 'A utility application for shortening long URLs. Showcases API integration, state management, and clean code practices.',
-      tech: ['JavaScript', 'Html & Css', 'API Integration'],
-      link: '#',
-      featured: false
-    },
+    }
   ]
 
   return (
@@ -41,7 +42,7 @@ const Work = () => {
       <h2 className="section-title">My Work</h2>
       
       <div className="space-y-8">
-        {projects.map((project) => (
+        {projects.filter(p => p.featured).map((project) => (
           <div key={project.id} className="grid md:grid-cols-2 gap-8 items-center">
             <div>
               <p className="text-gray-500 text-sm mb-3">Featured Project</p>
