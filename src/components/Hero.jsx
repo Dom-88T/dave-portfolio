@@ -29,16 +29,7 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Featured In Section */}
-      <div className="mt-24">
-        <p className="text-center text-gray-500 mb-8">AS FEATURED IN</p>
-        <div className="flex justify-center items-center flex-wrap gap-8 opacity-60">
-          <span className="text-gray-400">Colorlib</span>
-          <span className="text-gray-400">Masai</span>
-          <span className="text-gray-400">Dribbble Featured</span>
-          <span className="text-gray-400">Hostinger</span>
-        </div>
-      </div>
+     
     </section>
   )
 }

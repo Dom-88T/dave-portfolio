@@ -33,7 +33,7 @@ const Work = () => {
       description: 'An innovative waste management platform designed to promote sustainable living. Features user-friendly interface for tracking and managing waste disposal, environmental impact awareness, and community engagement.',
       tech: ['React', 'Python', 'JavaScript', 'Tailwind CSS', 'Sustainability'],
       link: '#',
-      featured: false
+      featured: true
     }
   ]
 
@@ -41,7 +41,8 @@ const Work = () => {
     <section id="work" className="section-container">
       <h2 className="section-title">My Work</h2>
       
-      <div className="space-y-8">
+      {/* Featured Projects */}
+      <div className="space-y-8 mb-16">
         {projects.filter(p => p.featured).map((project) => (
           <div key={project.id} className="grid md:grid-cols-2 gap-8 items-center">
             <div>
