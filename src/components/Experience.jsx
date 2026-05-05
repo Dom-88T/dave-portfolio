@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
+import { useTheme } from '../context/ThemeContext'
 
 const Experience = () => {
+  const { isDark } = useTheme()
   const [expandedId, setExpandedId] = useState(null)
 
   const experiences = [
@@ -45,34 +47,34 @@ const Experience = () => {
   ]
 
   return (
-    <section id="experience" className="section-container bg-darkGray/50">
-      <h2 className="section-title">Professional Experience</h2>
+    <section id="experience" className={`section-container transition-colors duration-300 ${isDark ? 'bg-darkGray/50' : 'bg-gray-50'}`}>
+      <h2 className={`section-title transition-colors duration-300 ${isDark ? 'text-white' : 'text-black'}`}>Professional Experience</h2>
       
       <div className="max-w-3xl mx-auto space-y-4">
         {experiences.map((exp) => (
-          <div key={exp.id} className="border border-gray-700 rounded-lg overflow-hidden hover:border-purple-500 transition-colors">
+          <div key={exp.id} className={`border rounded-lg overflow-hidden hover:border-purple-500 transition-colors ${isDark ? 'border-gray-700' : 'border-gray-300'}`}>
             <button
               onClick={() => setExpandedId(expandedId === exp.id ? null : exp.id)}
-              className="w-full bg-gray-900/50 hover:bg-gray-800/50 p-6 flex justify-between items-center transition-colors"
+              className={`w-full p-6 flex justify-between items-center transition-colors ${isDark ? 'bg-gray-900/50 hover:bg-gray-800/50' : 'bg-gray-100/50 hover:bg-gray-200/50'}`}
             >
               <div className="text-left">
-                <h3 className="text-xl font-bold text-white mb-2">
+                <h3 className={`text-xl font-bold mb-2 transition-colors duration-300 ${isDark ? 'text-white' : 'text-black'}`}>
                   {exp.title} @ {exp.company}
                 </h3>
-                <p className="text-gray-400">{exp.period}</p>
+                <p className={`transition-colors duration-300 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>{exp.period}</p>
               </div>
-              <span className="text-2xl text-purple-400">
+              <span className={`text-2xl transition-colors duration-300 ${isDark ? 'text-purple-400' : 'text-purple-600'}`}>
                 {expandedId === exp.id ? '−' : '+'}
               </span>
             </button>
 
             {expandedId === exp.id && (
-              <div className="bg-gray-900/30 p-6 border-t border-gray-700">
-                <p className="text-gray-400 mb-4">{exp.description}</p>
+              <div className={`p-6 border-t transition-colors duration-300 ${isDark ? 'bg-gray-900/30 border-gray-700' : 'bg-gray-50 border-gray-300'}`}>
+                <p className={`mb-4 transition-colors duration-300 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>{exp.description}</p>
                 <ul className="space-y-2">
                   {exp.responsibilities.map((resp, idx) => (
-                    <li key={idx} className="flex items-start gap-3 text-gray-400">
-                      <span className="text-purple-400 mt-1">▸</span>
+                    <li key={idx} className={`flex items-start gap-3 transition-colors duration-300 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
+                      <span className={`mt-1 transition-colors duration-300 ${isDark ? 'text-purple-400' : 'text-purple-600'}`}>▸</span>
                       <span>{resp}</span>
                     </li>
                   ))}

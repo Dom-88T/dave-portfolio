@@ -1,6 +1,9 @@
 import React from 'react'
+import { useTheme } from '../context/ThemeContext'
 
 const Expertise = () => {
+  const { isDark } = useTheme()
+
   const expertise = [
     {
       id: 1,
@@ -26,26 +29,26 @@ const Expertise = () => {
   ]
 
   return (
-    <section id="expertise" className="section-container bg-darkGray/50">
-      <h2 className="section-title">My Expertise</h2>
+    <section id="expertise" className={`section-container transition-colors duration-300 ${isDark ? 'bg-darkGray/50' : 'bg-gray-50'}`}>
+      <h2 className={`section-title transition-colors duration-300 ${isDark ? 'text-white' : 'text-black'}`}>My Expertise</h2>
       
       <div className="grid md:grid-cols-3 gap-6">
         {expertise.map((item) => (
-          <div key={item.id} className="card">
+          <div key={item.id} className={`card transition-colors duration-300 ${isDark ? 'border-gray-700' : 'border-gray-300 bg-white'}`}>
             <div className="text-4xl mb-4">{item.icon}</div>
-            <h3 className="text-2xl font-bold mb-2">
-              <span className="text-purple-400">{item.title.split(' ')[0]}</span>
-              <span className="text-white ml-1">{item.title.substring(item.title.indexOf(' ') + 1)}</span>
+            <h3 className={`text-2xl font-bold mb-2 transition-colors duration-300`}>
+              <span className={isDark ? 'text-purple-400' : 'text-purple-600'}>{item.title.split(' ')[0]}</span>
+              <span className={`ml-1 transition-colors duration-300 ${isDark ? 'text-white' : 'text-black'}`}>{item.title.substring(item.title.indexOf(' ') + 1)}</span>
             </h3>
             {item.subtitle && (
-              <p className="text-gray-400 mb-4">{item.subtitle}</p>
+              <p className={`mb-4 transition-colors duration-300 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>{item.subtitle}</p>
             )}
-            <p className="text-gray-400 mb-6 leading-relaxed">
+            <p className={`mb-6 leading-relaxed transition-colors duration-300 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
               {item.description}
             </p>
             <div className="flex flex-wrap gap-2">
               {item.skills.map((skill, idx) => (
-                <span key={idx} className="px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-sm">
+                <span key={idx} className={`px-3 py-1 rounded-full text-sm transition-colors duration-300 ${isDark ? 'bg-purple-500/20 text-purple-300' : 'bg-purple-600/20 text-purple-700'}`}>
                   {skill}
                 </span>
               ))}

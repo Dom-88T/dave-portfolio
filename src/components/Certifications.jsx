@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
+import { useTheme } from '../context/ThemeContext'
 
 const Certifications = () => {
+  const { isDark } = useTheme()
   const [selectedCert, setSelectedCert] = useState(null)
   const [viewMode, setViewMode] = useState('details') // 'details' or 'image'
 
@@ -39,22 +41,22 @@ const Certifications = () => {
 
   return (
     <section id="certifications" className="section-container">
-      <h2 className="section-title">Certifications & Achievements</h2>
+      <h2 className={`section-title transition-colors duration-300 ${isDark ? 'text-white' : 'text-black'}`}>Certifications & Achievements</h2>
       
       <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
         {certifications.map((cert) => (
           <button
             key={cert.id}
             onClick={() => setSelectedCert(cert)}
-            className="card text-center cursor-pointer hover:bg-gray-800 hover:border-purple-500 transition-all duration-300 transform hover:scale-105"
+            className={`card text-center cursor-pointer transition-all duration-300 transform hover:scale-105 ${isDark ? 'hover:bg-gray-800 hover:border-purple-500' : 'hover:bg-gray-100 hover:border-purple-600'}`}
           >
             <div className="text-5xl mb-4">{cert.icon}</div>
-            <h3 className="text-lg font-bold text-white mb-2">
+            <h3 className={`text-lg font-bold mb-2 transition-colors duration-300 ${isDark ? 'text-white' : 'text-black'}`}>
               {cert.title}
             </h3>
-            <p className="text-purple-400 text-sm mb-2">{cert.issuer}</p>
-            <p className="text-gray-500 text-sm mb-4">{cert.year}</p>
-            <p className="text-xs text-purple-300 hover:text-purple-200">Click to view certificate →</p>
+            <p className={`text-sm mb-2 transition-colors duration-300 ${isDark ? 'text-purple-400' : 'text-purple-600'}`}>{cert.issuer}</p>
+            <p className={`text-sm mb-4 transition-colors duration-300 ${isDark ? 'text-gray-500' : 'text-gray-600'}`}>{cert.year}</p>
+            <p className={`text-xs transition-colors duration-300 ${isDark ? 'text-purple-300 hover:text-purple-200' : 'text-purple-700 hover:text-purple-800'}`}>Click to view certificate →</p>
           </button>
         ))}
       </div>
@@ -66,18 +68,18 @@ const Certifications = () => {
           onClick={() => setSelectedCert(null)}
         >
           <div
-            className="bg-dark rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto border border-gray-800 shadow-2xl"
+            className={`rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto border shadow-2xl transition-colors duration-300 ${isDark ? 'bg-dark border-gray-800' : 'bg-white border-gray-300'}`}
             onClick={(e) => e.stopPropagation()}
           >
             {/* Header with tabs */}
-            <div className="sticky top-0 bg-dark border-b border-gray-800 p-6 flex justify-between items-center">
+            <div className={`sticky top-0 border-b p-6 flex justify-between items-center transition-colors duration-300 ${isDark ? 'bg-dark border-gray-800' : 'bg-gray-50 border-gray-300'}`}>
               <div className="flex gap-4">
                 <button
                   onClick={() => setViewMode('details')}
                   className={`px-4 py-2 rounded-lg transition-colors ${
                     viewMode === 'details'
                       ? 'bg-purple-500 text-white'
-                      : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
+                      : isDark ? 'bg-gray-800 text-gray-300 hover:bg-gray-700' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
                   }`}
                 >
                   Details
@@ -88,7 +90,7 @@ const Certifications = () => {
                     className={`px-4 py-2 rounded-lg transition-colors ${
                       viewMode === 'image'
                         ? 'bg-purple-500 text-white'
-                        : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
+                        : isDark ? 'bg-gray-800 text-gray-300 hover:bg-gray-700' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
                     }`}
                   >
                     View Certificate
@@ -97,7 +99,7 @@ const Certifications = () => {
               </div>
               <button
                 onClick={() => setSelectedCert(null)}
-                className="text-gray-400 hover:text-white text-3xl transition-colors"
+                className={`text-3xl transition-colors ${isDark ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-black'}`}
               >
                 ✕
               </button>
@@ -111,18 +113,18 @@ const Certifications = () => {
                   <div className="flex justify-between items-start mb-6">
                     <div>
                       <div className="text-6xl mb-4">{selectedCert.icon}</div>
-                      <h3 className="text-3xl font-bold text-white mb-2">{selectedCert.title}</h3>
-                      <p className="text-purple-400 text-lg">{selectedCert.issuer}</p>
+                      <h3 className={`text-3xl font-bold mb-2 transition-colors duration-300 ${isDark ? 'text-white' : 'text-black'}`}>{selectedCert.title}</h3>
+                      <p className={`text-lg transition-colors duration-300 ${isDark ? 'text-purple-400' : 'text-purple-600'}`}>{selectedCert.issuer}</p>
                     </div>
                   </div>
 
                   {/* Certificate Details */}
-                  <div className="bg-gray-900 rounded-lg p-6 mb-6 border border-gray-800">
-                    <div className="space-y-3 text-gray-300">
-                      <p><span className="text-purple-400 font-semibold">Certification:</span> {selectedCert.title}</p>
-                      <p><span className="text-purple-400 font-semibold">Issuer:</span> {selectedCert.issuer}</p>
-                      <p><span className="text-purple-400 font-semibold">Awarded:</span> {selectedCert.year}</p>
-                      <p className="pt-3 border-t border-gray-700">{selectedCert.description}</p>
+                  <div className={`rounded-lg p-6 mb-6 border transition-colors duration-300 ${isDark ? 'bg-gray-900 border-gray-800 text-gray-300' : 'bg-gray-50 border-gray-300 text-gray-800'}`}>
+                    <div className="space-y-3">
+                      <p><span className={`font-semibold transition-colors duration-300 ${isDark ? 'text-purple-400' : 'text-purple-600'}`}>Certification:</span> {selectedCert.title}</p>
+                      <p><span className={`font-semibold transition-colors duration-300 ${isDark ? 'text-purple-400' : 'text-purple-600'}`}>Issuer:</span> {selectedCert.issuer}</p>
+                      <p><span className={`font-semibold transition-colors duration-300 ${isDark ? 'text-purple-400' : 'text-purple-600'}`}>Awarded:</span> {selectedCert.year}</p>
+                      <p className={`pt-3 border-t transition-colors duration-300 ${isDark ? 'border-gray-700' : 'border-gray-300'}`}>{selectedCert.description}</p>
                     </div>
                   </div>
 
@@ -130,7 +132,7 @@ const Certifications = () => {
                   <div className="flex justify-end gap-3">
                     <button
                       onClick={() => setSelectedCert(null)}
-                      className="px-6 py-2 bg-gray-800 hover:bg-gray-700 text-white rounded-lg transition-colors"
+                      className={`px-6 py-2 rounded-lg transition-colors ${isDark ? 'bg-gray-800 hover:bg-gray-700 text-white' : 'bg-gray-300 hover:bg-gray-400 text-black'}`}
                     >
                       Close
                     </button>
@@ -150,8 +152,8 @@ const Certifications = () => {
                 <>
                   {/* Certificate Image View */}
                   <div className="text-center">
-                    <h3 className="text-2xl font-bold text-white mb-6">{selectedCert.title}</h3>
-                    <div className="bg-gray-900 rounded-lg p-4 flex items-center justify-center min-h-[500px]">
+                    <h3 className={`text-2xl font-bold mb-6 transition-colors duration-300 ${isDark ? 'text-white' : 'text-black'}`}>{selectedCert.title}</h3>
+                    <div className={`rounded-lg p-4 flex items-center justify-center min-h-[500px] transition-colors duration-300 ${isDark ? 'bg-gray-900' : 'bg-gray-100'}`}>
                       {selectedCert.image ? (
                         <img
                           src={selectedCert.image}
@@ -159,7 +161,7 @@ const Certifications = () => {
                           className="max-w-full max-h-[70vh] rounded-lg shadow-lg object-contain"
                           onError={(e) => {
                             e.target.style.display = 'none';
-                            e.target.parentElement.innerHTML = '<div class="text-gray-400 text-lg">Certificate image not available</div>';
+                            e.target.parentElement.innerHTML = `<div class="text-gray-400 text-lg">Certificate image not available</div>`;
                           }}
                         />
                       ) : (
@@ -169,7 +171,7 @@ const Certifications = () => {
                     <div className="flex justify-end gap-3 mt-6">
                       <button
                         onClick={() => setSelectedCert(null)}
-                        className="px-6 py-2 bg-gray-800 hover:bg-gray-700 text-white rounded-lg transition-colors"
+                        className={`px-6 py-2 rounded-lg transition-colors ${isDark ? 'bg-gray-800 hover:bg-gray-700 text-white' : 'bg-gray-300 hover:bg-gray-400 text-black'}`}
                       >
                         Close
                       </button>

@@ -1,6 +1,9 @@
 import React from 'react'
+import { useTheme } from '../context/ThemeContext'
 
 const Work = () => {
+  const { isDark } = useTheme()
+
   const projects = [
     {
       id: 1,
@@ -34,26 +37,34 @@ const Work = () => {
       tech: ['React', 'Python', 'JavaScript', 'Tailwind CSS', 'Sustainability'],
       link: '#',
       featured: true
+    },
+    {
+      id: 5,
+      title: 'Hive Telecoms - Communication Platform',
+      description: 'A modern telecommunications platform built with cutting-edge technologies. Provides seamless communication solutions with an intuitive interface, reliable infrastructure, and scalable architecture for enterprise-level requirements.',
+      tech: ['React', 'JavaScript', 'Tailwind CSS', 'Vercel', 'Web Platform'],
+      link: 'https://hive-telecoms.vercel.app/',
+      featured: true
     }
   ]
 
   return (
     <section id="work" className="section-container">
-      <h2 className="section-title">My Work</h2>
+      <h2 className={`section-title transition-colors duration-300 ${isDark ? 'text-white' : 'text-black'}`}>My Work</h2>
       
       {/* Featured Projects */}
       <div className="space-y-8 mb-16">
         {projects.filter(p => p.featured).map((project) => (
           <div key={project.id} className="grid md:grid-cols-2 gap-8 items-center">
             <div>
-              <p className="text-gray-500 text-sm mb-3">Featured Project</p>
-              <h3 className="text-4xl font-bold mb-6">{project.title}</h3>
-              <p className="text-gray-400 text-lg mb-6 leading-relaxed">
+              <p className={`text-sm mb-3 transition-colors duration-300 ${isDark ? 'text-gray-500' : 'text-gray-600'}`}>Featured Project</p>
+              <h3 className={`text-4xl font-bold mb-6 transition-colors duration-300 ${isDark ? 'text-white' : 'text-black'}`}>{project.title}</h3>
+              <p className={`text-lg mb-6 leading-relaxed transition-colors duration-300 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
                 {project.description}
               </p>
               <div className="flex flex-wrap gap-3 mb-8">
                 {project.tech.map((tech, idx) => (
-                  <span key={idx} className="px-4 py-2 bg-purple-500/20 text-purple-300 rounded-lg text-sm">
+                  <span key={idx} className={`px-4 py-2 rounded-lg text-sm transition-colors duration-300 ${isDark ? 'bg-purple-500/20 text-purple-300' : 'bg-purple-600/20 text-purple-700'}`}>
                     {tech}
                   </span>
                 ))}
@@ -63,27 +74,27 @@ const Work = () => {
               </a>
             </div>
             
-            <div className="bg-gray-900 rounded-lg p-8 text-center">
+            <div className={`rounded-lg p-8 text-center transition-colors duration-300 ${isDark ? 'bg-gray-900' : 'bg-gray-100'}`}>
               <div className="inline-block text-6xl mb-4">📱</div>
-              <p className="text-gray-400">Project Demo</p>
+              <p className={`transition-colors duration-300 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>Project Demo</p>
             </div>
           </div>
         ))}
       </div>
 
       {/* Stats */}
-      <div className="grid md:grid-cols-3 gap-8 mt-20 pt-20 border-t border-gray-800">
+      <div className={`grid md:grid-cols-3 gap-8 mt-20 pt-20 border-t transition-colors duration-300 ${isDark ? 'border-gray-800' : 'border-gray-300'}`}>
         <div className="text-center">
-          <div className="text-4xl font-bold text-purple-400 mb-2">10+</div>
-          <p className="text-gray-400">Projects Completed</p>
+          <div className={`text-4xl font-bold mb-2 transition-colors duration-300 ${isDark ? 'text-purple-400' : 'text-purple-600'}`}>10+</div>
+          <p className={`transition-colors duration-300 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>Projects Completed</p>
         </div>
         <div className="text-center">
-          <div className="text-4xl font-bold text-purple-400 mb-2">100%</div>
-          <p className="text-gray-400">Client Satisfaction</p>
+          <div className={`text-4xl font-bold mb-2 transition-colors duration-300 ${isDark ? 'text-purple-400' : 'text-purple-600'}`}>100%</div>
+          <p className={`transition-colors duration-300 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>Client Satisfaction</p>
         </div>
         <div className="text-center">
-          <div className="text-4xl font-bold text-purple-400 mb-2">1+</div>
-          <p className="text-gray-400">Years Experience</p>
+          <div className={`text-4xl font-bold mb-2 transition-colors duration-300 ${isDark ? 'text-purple-400' : 'text-purple-600'}`}>1+</div>
+          <p className={`transition-colors duration-300 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>Years Experience</p>
         </div>
       </div>
     </section>

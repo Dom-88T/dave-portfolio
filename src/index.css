@@ -16,6 +16,12 @@ body {
   background-color: #0f0f0f;
   color: #ffffff;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+html.light body {
+  background-color: #ffffff;
+  color: #000000;
 }
 
 button {
@@ -35,7 +41,15 @@ button:hover {
 }
 
 .card {
-  @apply border border-gray-700 rounded-lg p-6 hover:border-purple-500 transition-all duration-300;
+  @apply border rounded-lg p-6 hover:border-purple-500 transition-all duration-300;
+}
+
+html.dark .card {
+  @apply border-gray-700;
+}
+
+html.light .card {
+  @apply border-gray-300;
 }
 
 .cta-button {
@@ -44,4 +58,21 @@ button:hover {
 
 .accent-text {
   @apply text-purple-400;
+}
+
+html.light .accent-text {
+  @apply text-purple-600;
+}
+
+/* Light mode text color adjustments */
+html.light {
+  --white-text: #000000;
+  --light-gray: #4b5563;
+  --dark-gray: #1a1a1a;
+}
+
+html.dark {
+  --white-text: #ffffff;
+  --light-gray: #d1d5db;
+  --dark-gray: #ffffff;
 }
