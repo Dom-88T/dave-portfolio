@@ -35,7 +35,7 @@ const Work = () => {
       title: 'CleanLoop - Waste Management App',
       description: 'An innovative waste management platform designed to promote sustainable living. Features user-friendly interface for tracking and managing waste disposal, environmental impact awareness, and community engagement.',
       tech: ['React', 'Python', 'JavaScript', 'Tailwind CSS', 'Sustainability'],
-      link: '#',
+      link: 'https://cleanloop-one.vercel.app/',
       featured: true
     },
     {
