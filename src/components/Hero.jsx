@@ -11,7 +11,7 @@ const Hero = () => {
           DOMINGO TOMIWA DAVID
         </h1>
         <p className={`text-xl md:text-2xl mb-8 transition-colors duration-300 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
-          FRONTEND DEVELOPER
+          FRONTEND DEVELOPER & QA TESTER
         </p>
         <div className="flex justify-center gap-6 flex-wrap">
           <a href="#contact" className="cta-button">
@@ -19,6 +19,9 @@ const Hero = () => {
           </a>
           <a href="#work" className={`px-8 py-3 border rounded-lg transition-all ${isDark ? 'border-purple-500 text-purple-400 hover:bg-purple-500/10' : 'border-purple-600 text-purple-600 hover:bg-purple-600/10'}`}>
             View My Work
+          </a>
+          <a href="https://dave-qa.vercel.app/" target="_blank" rel="noreferrer" className={`px-8 py-3 border rounded-lg transition-all ${isDark ? 'border-purple-500 text-purple-400 hover:bg-purple-500/10' : 'border-purple-600 text-purple-600 hover:bg-purple-600/10'}`}>
+            View QA Portfolio
           </a>
         </div>
       </div>

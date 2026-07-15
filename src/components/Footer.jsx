@@ -13,7 +13,7 @@ const Footer = () => {
           <div>
             <h3 className={`text-2xl font-bold mb-2 transition-colors duration-300 ${isDark ? 'text-purple-400' : 'text-purple-600'}`}>Dav3</h3>
             <p className={`text-sm transition-colors duration-300 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
-              Frontend developer passionate about building responsive, user-centered web applications with React and modern JavaScript.
+              Frontend developer and QA tester passionate about building responsive, user-centered web applications with React and modern JavaScript.
             </p>
           </div>
 
@@ -41,6 +41,9 @@ const Footer = () => {
               </a>
               <a href="#" className={`transition-colors text-lg ${isDark ? 'text-gray-400 hover:text-purple-400' : 'text-gray-600 hover:text-purple-600'}`}>
                 Twitter
+              </a>
+              <a href="https://dave-qa.vercel.app/" target="_blank" rel="noreferrer" className={`transition-colors text-lg ${isDark ? 'text-gray-400 hover:text-purple-400' : 'text-gray-600 hover:text-purple-600'}`}>
+                QA Portfolio
               </a>
             </div>
           </div>
